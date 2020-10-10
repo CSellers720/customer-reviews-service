@@ -7,6 +7,8 @@ import Stats from './components/Stats.jsx';
 import Sort from './components/Sort.jsx';
 import ReviewsFeed from './components/ReviewsFeed.jsx';
 
+const TARGET = 'http://18.216.180.46:3004';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -24,7 +26,7 @@ class App extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: `/${this.state.product_id}`,
+      url: `${TARGET}/${this.state.product_id}`,
       method: 'PATCH',
       success: (res) => {
         this.setState({
@@ -34,7 +36,7 @@ class App extends React.Component {
     })
 
     $.ajax({
-      url: `/${this.state.product_id}`,
+      url: `${TARGET}/${this.state.product_id}`,
       method: 'GET',
       success: (res) => {
         this.setState({
@@ -44,7 +46,7 @@ class App extends React.Component {
     })
 
     $.ajax({
-      url: `/api/totalScore/${this.state.product_id}`,
+      url: `${TARGET}/api/totalScore/${this.state.product_id}`,
       method: 'GET',
       success: (res) => {
         console.log('success!');
@@ -55,7 +57,7 @@ class App extends React.Component {
     })
 
     $.ajax({
-      url: `/api/reviewCount/${this.state.product_id}`,
+      url: `${TARGET}/api/reviewCount/${this.state.product_id}`,
       method: 'GET',
       success: (res) => {
         this.setState({
